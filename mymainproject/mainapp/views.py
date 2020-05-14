@@ -154,7 +154,7 @@ def readcomment(request, id):
     """
     Function to retrieve and display all  records.
     Returns:
-        Return a html file all the records.
+        Return a html page which display the records.
     """
 
     comments = {'comments': Comment.objects.filter(blog_id=id).order_by('-date')}
