@@ -1,0 +1,54 @@
+{% extends "mainapp/base.html" %}
+
+
+{% block content %}
+
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>TITLE</td>
+            <td>DATE</td>
+
+            <td>
+                <a> {{request.user}}</a>
+                <a href="{% url 'logout' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> logout
+                </a>
+                <a href="{% url 'register' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> REGISTER
+                </a>
+                <a href="{% url 'add_update_blog' id=0 %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> ADDBLOG
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for blog in blogs %}
+            <tr>
+                <td>{{blog.title}}</td>
+                <td>{{blog.date}}</td>
+                <td><a href="{% url 'blog' blog.id %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> READ</a>
+
+                    <a href="{% url 'add_update_blog' blog.id %}" class="btn text-secondary px-0">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a>
+                    <form action="{% url 'blog_delete' blog.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+
+</table>
+
+
+
+
+{% endblock content %}

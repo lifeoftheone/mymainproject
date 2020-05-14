@@ -1,0 +1,32 @@
+{% extends "mainapp/base.html" %}
+
+
+{% block content %}
+
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>TITLE</td>
+            <td>DATE</td>
+            <td>
+                <a href="{% url 'login' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> login
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for blog in homepage %}
+            <tr>
+                <td><a href="{% url 'blog' blog.id %}">{{blog.title}}</a></td>
+                <td>{{blog.date}}</td>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+{% endblock content %}

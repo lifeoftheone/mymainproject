@@ -1,0 +1,21 @@
+{% extends "mainapp/base.html" %}
+
+
+{% block content %}
+<form action="" method="POST" >
+    {% csrf_token %}
+     <div class="form-group">
+     <label>name</label> <input type="text" class="form-control" name="name" placeholder="name" value="{{blog.name}}{{name}}">
+      </div>
+     <div class="form-group">
+     <label>email</label> <input type="text" class="form-control" name="email" placeholder="email" value="{{blog.email}}{{email}}">
+      </div>
+     <div class="form-group">
+     <label>title</label> <input type="text" class="form-control" name="title" placeholder="title" value="{{blog.title}}">
+     </div>
+      <div class="form-group">
+     <label>body</label> <textarea name="body" placeholder="body" value="{{blog.body}}"></textarea>
+      </div>
+     <input name="addblog" type="submit">
+</form>
+{% endblock content %}

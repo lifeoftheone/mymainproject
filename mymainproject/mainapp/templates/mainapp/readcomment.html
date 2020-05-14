@@ -1,0 +1,27 @@
+{% extends "mainapp/base.html" %}
+
+
+{% block content %}
+
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>Datetime</td>
+            <td>EMAIL</td>
+            <td>Comment</td>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                {% for comments in comments %}
+                <td>{{comments.date}}</td>
+                <td>{{comments.email}}</td>
+                 <td>{{comments.comment}}</td>
+
+            </tr>
+     {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock content %}

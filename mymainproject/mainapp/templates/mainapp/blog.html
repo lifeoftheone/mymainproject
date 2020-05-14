@@ -1,0 +1,30 @@
+{% extends "mainapp/base.html" %}
+
+
+{% block content %}
+
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>TITLE</td>
+            <td>EMAIL</td>
+            <td>BODY</td>
+            {{emailid}}
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>{{blogs.title}}</td>
+                <td>{{blogs.email}}</td>
+                 <td>{{blogs.body}}</td>
+                <td><a href="{% url 'comment' blogs.id %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> comment</a>
+                <td><a href="{% url 'readcomment' blogs.id %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> readcomment</a>
+                </td>
+            </tr>
+    </tbody>
+</table>
+
+
+{% endblock content %}

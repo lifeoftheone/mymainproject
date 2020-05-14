@@ -1,0 +1,13 @@
+{% extends "mainapp/base.html" %}
+
+{% block content %}
+<form action="" method="POST" >
+    {% csrf_token %}
+    <td>{{error}}</td>
+    <td><input type="text" name="email" placeholder="email"  ><br></td>
+    <td><input type="password" name="password" placeholder="password"><br></td>
+    <td><button type="submit">login</button></td>
+
+</form>
+
+{% endblock content %}
