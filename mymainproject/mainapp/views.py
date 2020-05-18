@@ -38,6 +38,12 @@ def userlogin(request):
         user = auth.authenticate(email=email, password=password)
         if user is not None:
             login(request, user)
+            print(request.user.is_staff)
+            print(request.user)
+            print(request.user.name)
+            print(request.user.gender)
+            print(request.session)
+
             return redirect('/teamblog/bloghomepage')
         else:
             return render(request, 'mainapp/login.html', {'error': 'User name and password invaild'})
